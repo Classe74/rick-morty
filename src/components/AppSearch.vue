@@ -1,13 +1,14 @@
 <template>
-    <div class="container p-4">
-        SearchBar
+    <div class="container d-flex justify-content-center p-4">
+        Search bar
     </div>
 
 </template>
 
 <script>
 export default {
-    name: 'AppSearch'
+    name: 'AppSearch',
+
 }
 </script>
 

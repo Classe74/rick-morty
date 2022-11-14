@@ -1,9 +1,9 @@
 <template>
-    <div class="character">
+    <div class="character text-center">
         <img :src="character.image" :alt="character.name">
-        <h1>{{ character.name }}</h1>
-        <h2>{{ character.status }}</h2>
-        <h3>{{ character.species }}</h3>
+        <h4>{{ character.name }}</h4>
+        <div>{{ character.status }}</div>
+        <div class="font-weight-bold">{{ character.species }}</div>
     </div>
 </template>
 
@@ -16,5 +16,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h4 {
+    text-transform: capitalize;
+}
 
+img {
+    border-radius: 50%;
+    box-shadow: 0 0 6px 3px rgba(#000, 0.15);
+}
 </style>

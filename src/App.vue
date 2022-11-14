@@ -1,7 +1,7 @@
 <template>
     <AppHeader title="Rick and Morty App" />
     <main>
-        <AppSearch />
+        <AppSearch :serchtype="searchType" />
         <CharacterList :characters="characterList" :loading="loading" />
     </main>
 
@@ -23,7 +23,8 @@ export default {
         return {
             apiURL: 'https://rickandmortyapi.com/api/character',
             characterList: [],
-            loading: false
+            loading: false,
+            searchType: ''
         }
     },
     methods: {
