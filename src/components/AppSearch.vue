@@ -58,20 +58,20 @@ export default {
             })
             //cloniamo in params l'oggetto con le proprietà valorizzate
             store.params = { ...search };
-            console.log(store.params)
-            //store.getCharacters('character')
-            this.$emit('filterchar');
+            //console.log(store.params)
+            store.getCharacters()
+            //this.$emit('filterchar');
 
         },
         resetSearch() {
             this.search.status = '';
             this.search.name = '';
             store.params = {};
-            // store.getCharacters('character')
+            store.getCharacters()
             // store.search.status = '';
             // store.search.name = '';
 
-            this.$emit('filterchar')
+            //this.$emit('filterchar')
         }
     }
     // props: {
