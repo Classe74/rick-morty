@@ -33,35 +33,43 @@ export default {
             endPoint: 'character',
         }
     },
-    watch: {
-
-    },
+    // watch: {
+    //     'store.params'(newVal, oldVal) {
+    //         console.log(newVal);
+    //         console.log(oldVal);
+    //         this.getCharacters();
+    //     }
+    // },
     methods: {
         getCharacters() {
             store.errormessage = '';
             //const apiaurl = (status) ? this.apiURL + '?status=' + status : this.apiURL;
-            let options = null
-            if (store.search.status && store.search.name) {
-                options = {
-                    params: {
-                        status: store.search.status,
-                        name: store.search.name
-                    }
-                }
-            } else if (store.search.status) {
-                options = {
-                    params: {
-                        status: store.search.status
-                    }
-                }
-            } else if (store.search.name) {
-                options = {
-                    params: {
-                        name: store.search.name
-                    }
-                }
+            //let options = null
+            const params = store.params;
+            // Passando SOLO i parmetri che hanno un valore (versione con $EMIT)
+            // if (store.search.status && store.search.name) {
+            //     options = {
+            //         params: {
+            //             status: store.search.status,
+            //             name: store.search.name
+            //         }
+            //     }
+            // } else if (store.search.status) {
+            //     options = {
+            //         params: {
+            //             status: store.search.status
+            //         }
+            //     }
+            // } else if (store.search.name) {
+            //     options = {
+            //         params: {
+            //             name: store.search.name
+            //         }
+            //     }
 
-            }
+            // }
+
+            // Passando tutti i parmetri (versione con $EMIT)
             // if (store.search.status || store.search.name) {
             //     options = {
             //         params: {
@@ -71,7 +79,7 @@ export default {
             // }
             store.loading = true;
             const apiurl = store.apiURL + this.endPoint;
-            axios.get(apiurl, options).then(
+            axios.get(apiurl, { params }).then(
                 (res) => {
                     store.characterList = res.data.results;
                     store.loading = false;
@@ -86,6 +94,7 @@ export default {
         }
     },
     created() {
+        //store.getCharacters('character')
         this.getCharacters()
     }
 }
